@@ -1,0 +1,26 @@
+{
+  "name": "probable-umbrella",
+  "version": "1.0.0",
+  "description": "simple ThreeJS demo app",
+  "scripts": {
+    "start": "parcel src/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Amelithic/probable-umbrella.git"
+  },
+  "author": "Amelithic",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Amelithic/probable-umbrella/issues"
+  },
+  "homepage": "https://github.com/Amelithic/probable-umbrella#readme",
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^4.22.1",
+    "three": "^0.184.0"
+  },
+  "devDependencies": {
+    "parcel": "^2.16.4"
+  }
+}
