@@ -1,6 +1,7 @@
 //simple Three.js program :)
-
 import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
 /* SETUP */
 
@@ -8,6 +9,8 @@ import * as THREE from 'three';
 const scene = new THREE.Scene()
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000)
 const renderer = new THREE.WebGLRenderer({antialias:true})
+const controls = new OrbitControls(camera, renderer.domElement);
+const loader = new GLTFLoader();
 
 renderer.setSize(window.innerWidth, window.innerHeight)
 renderer.setClearColor("#0b0020") //background color
@@ -15,14 +18,28 @@ document.body.appendChild(renderer.domElement)
 camera.position.z = 5
 
 //resize canvas on resize window
-window.addEventListener( 'resize', () => {
-	let width = window.innerWidth
-	let height = window.innerHeight
-	renderer.setSize( width, height )
-	camera.aspect = width / height
-	camera.updateProjectionMatrix()
+window.addEventListener('resize', () => {
+    let width = window.innerWidth
+    let height = window.innerHeight
+    renderer.setSize(width, height)
+    camera.aspect = width / height
+    camera.updateProjectionMatrix()
 })
 
+//gltf loader
+loader.load(
+    './models/umbrella.gltf',
+    function (gltf){
+        gltf.scene.scale.set(1, 1, 1);
+        gltf.scene.position.set(0, 0, 0);
+        scene.add(gltf.scene);
+        scene.remove(cube);
+    },
+    undefined,
+    function(error){
+        console.error(error);
+    }
+);
 
 /* CANVAS */
 

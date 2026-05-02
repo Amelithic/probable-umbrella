@@ -4,6 +4,9 @@ const app = express();
 const PORT = 3000;
 
 // Serve static files from the 'public' directory
+app.use(express.static(path.join(__dirname, 'public')));
+
+//Serve live files from the 'src' directory
 app.use(express.static(path.join(__dirname, 'src')));
 
 // Handle SPA routing: send index.html for any unmatched routes

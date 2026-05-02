@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "simple ThreeJS demo app",
   "scripts": {
-    "start": "parcel src/index.html"
+    "start": "npx vite server.js"
   },
   "repository": {
     "type": "git",
@@ -21,6 +21,6 @@
     "three": "^0.184.0"
   },
   "devDependencies": {
-    "parcel": "^2.16.4"
+    "vite": "^8.0.10"
   }
 }
